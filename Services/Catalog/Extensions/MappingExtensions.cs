@@ -17,6 +17,12 @@ namespace Catalog.Extensions
             };
         }
 
+        public static ProductBrand ToEntity(this ProductBrandDto dto)
+        {
+            if (dto == null) return null;
+            return new ProductBrand { Id = dto.Id, Name = dto.Name };
+        }
+
         public static ProductTypeDto ToDto(this ProductType type)
         {
             if (type == null) return null;
@@ -25,6 +31,12 @@ namespace Catalog.Extensions
                 Id = type.Id,
                 Name = type.Name
             };
+        }
+
+        public static ProductType ToEntity(this ProductTypeDto dto)
+        {
+            if (dto == null) return null;
+            return new ProductType { Id = dto.Id, Name = dto.Name };
         }
 
         public static ProductDto ToDto(this Product product)
@@ -110,6 +122,30 @@ namespace Catalog.Extensions
                 Price = dto.Price,
                 CreatedDate = DateTimeOffset.UtcNow
             };
+        }
+
+        public static ProductBrand ToEntity(this CreateBrandRequest dto)
+        {
+            if (dto == null) return null;
+            return new ProductBrand { Name = dto.Name };
+        }
+
+        public static ProductBrand ToEntity(this UpdateBrandRequest dto)
+        {
+            if (dto == null) return null;
+            return new ProductBrand { Id = dto.Id, Name = dto.Name };
+        }
+
+        public static ProductType ToEntity(this CreateTypeRequest dto)
+        {
+            if (dto == null) return null;
+            return new ProductType { Name = dto.Name };
+        }
+
+        public static ProductType ToEntity(this UpdateTypeRequest dto)
+        {
+            if (dto == null) return null;
+            return new ProductType { Id = dto.Id, Name = dto.Name };
         }
 
         public static PaginationDto<TDto> ToDto<TSource, TDto>(this Catalog.Specifications.Pagination<TSource> pagination, System.Func<TSource, TDto> map)

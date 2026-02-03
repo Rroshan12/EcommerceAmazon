@@ -10,6 +10,8 @@ namespace Catalog.Repository
         Task<IEnumerable<ProductTypeDto>> GetAllTypes();
 
         Task<ProductTypeDto> GetByIdAsync(string id);
+        Task<ProductTypeDto> CreateType(ProductTypeDto type);
+        Task<ProductTypeDto> UpdateType(ProductTypeDto type);
     }
     public class TypeRepository : ITypeRepository
     {
@@ -26,6 +28,20 @@ namespace Catalog.Repository
         {
             var entities = await _types.Find(_ => true).ToListAsync();
             return entities.Select(t => t.ToDto());
+        }
+        public async Task<ProductTypeDto> CreateType(ProductTypeDto typeDto)
+        {
+            var entity = typeDto.ToEntity();
+            await _types.InsertOneAsync(entity);
+            return entity.ToDto();
+        }
+
+        public async Task<ProductTypeDto> UpdateType(ProductTypeDto typeDto)
+        {
+            var entity = typeDto.ToEntity();
+            var filter = Builders<ProductType>.Filter.Eq(t => t.Id, entity.Id);
+            await _types.ReplaceOneAsync(filter, entity);
+            return entity.ToDto();
         }
         public async Task<ProductTypeDto> GetByIdAsync(string id)
         {

@@ -9,6 +9,8 @@ namespace Catalog.Repository
     {
         Task<IEnumerable<ProductBrandDto>> GetAllBrands();
         Task<ProductBrandDto> GetByIdAsync(string id);
+        Task<ProductBrandDto> CreateBrand(ProductBrandDto brand);
+        Task<ProductBrandDto> UpdateBrand(ProductBrandDto brand);
     }
 
     public class BrandRepository : IBrandRepository
@@ -26,6 +28,21 @@ namespace Catalog.Repository
         {
             var entities = await _brands.Find(_ => true).ToListAsync();
             return entities.ToDto();
+        }
+
+        public async Task<ProductBrandDto> CreateBrand(ProductBrandDto brandDto)
+        {
+            var entity = brandDto.ToEntity();
+            await _brands.InsertOneAsync(entity);
+            return entity.ToDto();
+        }
+
+        public async Task<ProductBrandDto> UpdateBrand(ProductBrandDto brandDto)
+        {
+            var entity = brandDto.ToEntity();
+            var filter = Builders<ProductBrand>.Filter.Eq(b => b.Id, entity.Id);
+            await _brands.ReplaceOneAsync(filter, entity);
+            return entity.ToDto();
         }
 
         public async Task<ProductBrandDto> GetByIdAsync(string id)
