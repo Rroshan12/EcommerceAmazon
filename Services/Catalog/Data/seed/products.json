@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "Acme Phone",
+    "Description": "A reliable smartphone",
+    "Summary": "Phone",
+    "ImageFile": "phone.jpg",
+    "BrandName": "Acme",
+    "TypeName": "Smartphone",
+    "Price": 499.99
+  },
+  {
+    "Name": "Contoso Laptop",
+    "Description": "A powerful laptop",
+    "Summary": "Laptop",
+    "ImageFile": "laptop.jpg",
+    "BrandName": "Contoso",
+    "TypeName": "Laptop",
+    "Price": 999.99
+  }
+]

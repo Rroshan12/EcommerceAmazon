@@ -1,0 +1,85 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+out/
+artifacts/
+
+# Publish
+publish/
+
+# NuGet
+*.nupkg
+# NuGet v3's project.json files
+project.lock.json
+project.fragment.lock.json
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Rider
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# User-specific files
+*.DotSettings.user
+*.suo
+
+# Logs
+*.log
+logs/
+
+# Test results
+TestResults/
+coverage/
+coverage*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker local volumes / DB files (ignore local mongo/db used by docker-compose)
+**/data/db/
+
+# Secret files
+.env
+.env.*.local
+secrets.json
+
+# Runtime
+*.exe
+*.dll
+*.pdb
+
+# Database files
+*.mdf
+*.ldf
+
+# JetBrains Rider caches
+.idea/
+
+# Others
+.vagrant/
+
+# Ignore backup and temporary files
+*~
+*.tmp
+*.bak
+
+# Ignore node_modules if present
+node_modules/
+
+# Ignore compiled package folders
+*.class
+
+# Ensure gitignore file itself is tracked
+!/.gitignore
