@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  order-sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: order-sqlserver
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "YourPassword123!"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./data/sqlserver:/var/opt/mssql/backup
+
+  order-adminer:
+    image: adminer:latest
+    container_name: order-adminer
+    restart: unless-stopped
+    ports:
+      - "8282:8080"
+    depends_on:
+      - order-sqlserver

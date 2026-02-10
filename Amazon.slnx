@@ -1,5 +1,11 @@
 <Solution>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Infrastructure/EventBus.Messages/EventBus.Messages.csproj" Id="2983bdaa-087e-42b7-b386-8a69f369663b" />
+  </Folder>
   <Folder Name="/Services/">
+    <Project Path="Services/Basket/Basket.csproj" Id="6568b649-18f4-4350-92c7-3a5986adb22a" />
     <Project Path="Services/Catalog/Catalog.csproj" />
+    <Project Path="Services/Discount/Discount.csproj" Id="9258e90b-0af8-4a8e-a1c2-77a5d9a2afe3" />
+    <Project Path="Services/Order/Order.csproj" Id="9ef08ea0-763a-4680-972e-e750a5ccc2f4" />
   </Folder>
 </Solution>
